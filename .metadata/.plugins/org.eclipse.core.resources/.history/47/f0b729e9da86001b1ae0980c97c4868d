@@ -1,0 +1,23 @@
+package com.azure.storage.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.web.client.RestTemplate;
+
+import com.azure.storage.blob.BlobContainerClient;
+import com.azure.storage.blob.BlobServiceClient;
+import com.azure.storage.blob.BlobServiceClientBuilder;
+import com.azure.storage.constants.StorageConstants;
+
+public class StorageService {
+	
+	@Autowired
+	RestTemplate restTemplate;
+	
+	public void createContainer(String containerName) {
+		BlobServiceClient blobServiceClient = new BlobServiceClientBuilder().connectionString(StorageConstants.CONNECTION_STRING).buildClient();
+		BlobContainerClient blobContainerClient = blobServiceClient.createBlobContainer(containerName);
+	}
+
+}

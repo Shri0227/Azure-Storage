@@ -1,0 +1,17 @@
+package com.azure.storage.service;
+
+import com.azure.storage.blob.BlobContainerClient;
+import com.azure.storage.blob.BlobServiceClient;
+import com.azure.storage.blob.BlobServiceClientBuilder;
+import com.azure.storage.constants.StorageConstants;
+
+public class StorageService {
+
+	
+	public void createContainer(String containerName) {
+		BlobServiceClient blobServiceClient = new BlobServiceClientBuilder().connectionString(StorageConstants.CONNECTION_STRING).buildClient();
+		BlobContainerClient blobContainerClient = blobServiceClient.createBlobContainer(containerName);
+		System.out.println("blobContainerClient : "+blobContainerClient);
+	}
+
+}

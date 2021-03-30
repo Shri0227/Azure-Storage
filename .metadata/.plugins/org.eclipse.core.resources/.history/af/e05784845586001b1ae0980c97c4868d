@@ -1,0 +1,9 @@
+package com.azure.storage.service;
+
+public class StorageService {
+	
+	public void createContainer(String containerName) {
+		
+	}
+
+}

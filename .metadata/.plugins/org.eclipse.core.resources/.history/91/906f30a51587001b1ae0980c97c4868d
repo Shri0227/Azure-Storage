@@ -1,0 +1,14 @@
+package com.azure.storage.config;
+
+import org.springframework.context.annotation.Bean;
+
+import com.azure.storage.blob.BlobServiceClient;
+
+@org.springframework.context.annotation.Configuration
+public class Configuration {
+
+	@Bean
+	public BlobServiceClient buildBlobServiceClient() {
+		
+	}
+}

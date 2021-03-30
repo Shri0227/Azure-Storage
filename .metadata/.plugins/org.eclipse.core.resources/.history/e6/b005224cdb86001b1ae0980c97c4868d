@@ -1,0 +1,10 @@
+package com.azure.storage;
+
+public class StorageApp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

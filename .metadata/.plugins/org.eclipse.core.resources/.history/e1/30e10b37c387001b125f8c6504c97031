@@ -1,0 +1,21 @@
+package com.azure.storage.config;
+
+import org.springframework.context.annotation.Bean;
+
+import com.azure.storage.blob.BlobServiceClient;
+import com.azure.storage.blob.BlobServiceClientBuilder;
+import com.azure.storage.constants.StorageConstants;
+
+@org.springframework.context.annotation.Configuration
+public class Configuration {
+
+	@Bean
+	public BlobServiceClient buildBlobServiceClient() {
+		return new BlobServiceClientBuilder().connectionString(StorageConstants.CONNECTION_STRING).buildClient();
+	}
+	
+	@Bean
+	public RestTemplate buildRestTemaple() {
+		return new RestTemplate();
+	}
+}

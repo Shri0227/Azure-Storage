@@ -1,0 +1,8 @@
+package com.azure.storage.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RequestMapping("/storage")
+public class StorageController {
+
+}

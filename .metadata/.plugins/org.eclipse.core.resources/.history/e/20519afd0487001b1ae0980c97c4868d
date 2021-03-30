@@ -1,0 +1,11 @@
+package com.azure.storage.constants;
+
+public class StorageConstants {
+
+	public static final String STORAGE_ACCOUNT_NAME = "notificationsblobstorage";
+	
+	public static final String CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=notificationsblobstorage;AccountKey=p2tuFO69401Ecym1QLnTJmb60AXtlM8irNWsmAlEVlw5WRqr6wowS1jq9p4lfoj+OKW/JeRojTdqvRyEt5XdBg==;EndpointSuffix=core.windows.net";
+			
+			
+	
+}

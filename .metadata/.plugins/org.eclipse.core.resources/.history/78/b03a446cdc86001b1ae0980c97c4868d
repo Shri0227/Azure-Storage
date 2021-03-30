@@ -1,0 +1,22 @@
+package com.azure.storage.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.azure.storage.service.StorageService;
+
+@RequestMapping("/storage")
+public class StorageController {
+	
+	@Autowired
+	StorageService storageService;
+	
+	@PostMapping("/container/create/{container-name}")
+	public String createContainer(@PathVariable String containerName) {
+		storageService.createContainer(containerName);
+		return containerName+" created";
+	}
+
+}

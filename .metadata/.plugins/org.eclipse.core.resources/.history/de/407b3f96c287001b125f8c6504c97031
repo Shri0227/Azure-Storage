@@ -1,0 +1,59 @@
+package com.azure.storage.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.azure.storage.service.StorageService;
+
+@RestController
+@RequestMapping("/storage")
+public class StorageController {
+	
+	@Autowired
+	StorageService storageService;
+	
+	@PostMapping("/container/create/{container_name}")
+	public String createContainer(@PathVariable("container_name") String containerName) {
+		storageService.createContainer(containerName);
+		return containerName+" created";
+	}
+	
+	@PostMapping("/{container_name}/blob/upload")
+	public String uploadBlob(@RequestParam("file") MultipartFile file,
+			@PathVariable("container_name") String containerName) {
+		storageService.uploadBlob(file, containerName);
+		return "Uploaded";
+	}
+	
+	@GetMapping("/{container_name}/blob/lists")
+	public String listBlobs(@PathVariable("container_name") String containerName) {
+		storageService.listBlobs(containerName);
+		return "Listed blobs";
+	}
+	
+	@PostMapping("/rest/container/create/{container_name}")
+	public String createRestContainer(@PathVariable("container_name") String containerName) {
+		
+		return "Rest "+containerName+" created";
+	}
+	
+	@PostMapping("/rest/{container_name}/blob/upload")
+	public String uploadRestBlob(@PathVariable("container_name") String containerName,
+			@RequestParam("file") MultipartFile file) {
+		
+		return "Rest uploaded";
+	}
+	
+	@GetMapping("/rest/{container_name}/blob/lists")
+	public String listRestBlobs(@PathVariable("container_name") String containerName) {
+		
+		return "Rest listed blobs";
+	}
+
+}

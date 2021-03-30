@@ -1,0 +1,8 @@
+package com.azure.storage.constants;
+
+public class StorageConstants {
+
+	public static final String STORAGE_ACCOUNT_NAME = "notificationsblobstorage";
+	
+	
+}
